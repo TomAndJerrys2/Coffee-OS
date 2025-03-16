@@ -13,5 +13,9 @@ A Custom Built Operating System and Kernel also Linking:
 - https://github.com/TomAndJerrys2/Coffee-Emulator
 - https://github.com/TomAndJerrys2/Coffee-SQL
 - https://github.com/TomAndJerrys2/Coffee-Chat
+- Browser (CoffeeSurf),
+- Virtual Container system (similar to docker - VirtualBean)
+- CoffeeLang (Native CoffeeOS and Cross-Platform Programming Language)
+- Custom Library Implementation(s) in /src/clib
 
-- Browser, Virtual Container system (similar to docker) and CoffeeLang are coming in the next wave of projects :)
+This and everything in it are mainly passion projects. Maintainability will be a question of whether I keep adding features, which I most likely will!
