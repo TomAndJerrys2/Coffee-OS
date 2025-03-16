@@ -1,0 +1,24 @@
+These Libraries were developed and written solely by Kyle Brady.
+
+A lot of it, and probably most of it - is indeed re-inventing the wheel.
+I knew that from the get go, but this wasn't about trying to make something new and shiny. 
+I really wanted to learn the fundamental concepts and I wanted to learn them well. That's where the
+idea of Coffee-OS came about, just wanting to learn.
+
+The idea of using my own libraries as well sounded satisfying,
+so I thought why not and decided to start at the foundations and make my own \"Standard library"\
+
+The Coffee OS Is designed to be both fast and powerful. I wanted to something that I could use for
+development and gaming but also something that was really well built and really modular. The goal in
+mind was a super-modular design. Almost like LEGO, I wanted it to be really design-friendly in the sense
+that it had a really nice, simple Graphical Interface that was highly customizable to the users needs and a
+powerhouse of various tools and integrated softwares that assisted with a variety of tasks.
+
+Most of the library is written in C. While parts of the project are written in C++, most of the code written
+here has direct compatibility between compilers anyway
+
+Custom Implementations:
+Most of this custom library has basic features that can be reworked. Most of it however is bespokely tailored
+to the Operating systems needs. With that being said I implemented a lot of features (even the niche ones) and I do
+mean quite a lot. I've covered the whole range of the library (Not including the software available in other repos)
+in this ReadMe file. Enjoy!
