@@ -145,5 +145,3 @@ int arrayMin(Array* arr) {
 
     } return minValue;
 }
-
-// -- MATRIX FUNCTIONS --
