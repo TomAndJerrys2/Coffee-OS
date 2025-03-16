@@ -5,6 +5,8 @@
 // Initialized memory through alloc and creates an array of a given size
 
 // -- ARRAY FUNCTIONS --
+
+// Create's a new array of a specified size
 Array* createArray(unsigned int size) {
     if(size <= 0) return NULL;
 
@@ -16,6 +18,7 @@ Array* createArray(unsigned int size) {
     return newArr;
 }
 
+// Delete's an existing array
 Array* deleteArray(Array* delArr) {
     if(!delArr) return NULL;
     // Each element becomes 0 - will optimize later
