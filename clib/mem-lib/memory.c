@@ -63,10 +63,3 @@ void* copyalloc(unsigned int elements, unsigned int elementSize) {
     memset(basePtr, 0, size);
     return basePtr;
 }
-
-// Memory Nodes
-MemoryNode* createMemoryNode(void* element) {
-    MemoryNode* newNode = (MemoryNode*)alloc(sizeof(MemoryNode));
-    newNode->data = element;
-    newNode->nodeSize = sizeof(newNode);
-}
