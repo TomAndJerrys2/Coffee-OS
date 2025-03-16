@@ -9,6 +9,7 @@ Array* createArray(unsigned int size) {
     Array* newArr = (Array*)alloc(sizeof(Array));
     newArr->basePtr = (int*)alloc(size * sizeof(int));
     newArr->size = size;
+    newArr->capacity = 0;
 
     return newArr;
 }
@@ -22,12 +23,14 @@ Array* deleteArray(Array* delArr) {
     // Free Pointers
     dealloc(delArr);
     dealloc(delArr->basePtr);
+
     delArr = NULL;
 }
 
 // Copy an existing array to an array of a new size
 Array* copyArray(Array* copyArr, unsigned int copySize) {
     if(!copyArr || copyArr->size <= 0) return NULL;
+
     if(copySize < copyArr->size) 
         printf("Cannot Copy! New Array is smaller than Old Array");
 
@@ -46,14 +49,31 @@ Array* copyArray(Array* copyArr, unsigned int copySize) {
     return newArr;
 }
 
-int arrayInsert(Array* arr, int position, int data) {
-    
+// Inserts an element at a specified position
+const int arrayInsert(Array* arr, int position, int data) {
+    if(arr->capacity == arr->size) return -1;
+
+    arr->basePtr[position] = data;
+    arr->capacity++;
+
+    return data;
 }
 
-int arrayRemove(Array* arr, int position) {
+// removes an element at a specified position
+const int arrayRemove(Array* arr, int position) {
+    if(arr->capacity == 0 || arr->size == 0) return -1;
 
+    arr->basePtr[position] = 0;
+    arr->capacity--;
+
+    return arr->basePtr[position];
 }
 
-const void swapElement(Array* arr, int position1, int position2) {
+// Swaps elements in an array using positions / indexes
+void swapElement(Array* arr, const int position1, const int position2) {
+    int tempOne = arr->basePtr[position1];
+    int tempTwo = arr->basePtr[position2];
 
+    arr->basePtr[position1] = tempTwo;
+    arr->basePtr[position2] = tempOne;
 }

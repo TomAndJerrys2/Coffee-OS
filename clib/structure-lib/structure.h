@@ -3,10 +3,6 @@
 
 #pragma once
 
-#ifdef __cplusplus // for cpp compiler usage
-extern "C" {
-#endif
-
 // --> Status Codes <--
 #define STRUC_ERR -2
 #define STRUC_DELETION -1
@@ -16,9 +12,10 @@ extern "C" {
 
 // -- Array --
 typedef struct _array_ {
-    // Properties
     int* basePtr;
     unsigned int size;
+
+    unsigned int capacity;
 } Array;
 
 // -- Array Functions --
@@ -26,9 +23,9 @@ Array* createArray(unsigned int size);
 Array* copyArray(Array* copyArr, unsigned int copySize);
 Array* deleteArray(Array* delArr);
 
-const void swapElement(Array* arr, int position1, int position2);
-int arrayInsert(Array* arr, int position, int data);
-int arrayRemove(Array* arr, int position);
+void swapElement(Array* arr, const int position1, const int position2);
+const int arrayInsert(Array* arr, int position, int data);
+const int arrayRemove(Array* arr, int position);
 // ---------------------
 
 // -- Matrix --
@@ -56,8 +53,3 @@ int arrayRemove(Array* arr, int position);
 // -- Dictionary --
 
 // -- Hashmap --
-
-
-#ifdef __cplusplus
-}
-#endif
