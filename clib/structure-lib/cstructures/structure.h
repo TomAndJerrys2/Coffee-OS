@@ -1,6 +1,4 @@
-// Int Data structures for Coffee-OS
-// See "dynamic.h" for Generic Data structures
-
+// C Data Structures for Coffee OS By Kyle Brady
 #pragma once
 
 // --> Status Codes <--
@@ -22,12 +20,37 @@ typedef struct _array_ {
 Array* createArray(unsigned int size);
 Array* copyArray(Array* copyArr, unsigned int copySize);
 Array* deleteArray(Array* delArr);
+Array* reverseArray(Array* revArr);
+Array* mergeArrays(Array* arr1, Array* arr2);
 
 void swapElement(Array* arr, const int position1, const int position2);
 const int arrayInsert(Array* arr, int position, int data);
 const int arrayRemove(Array* arr, int position);
+int arrayMax(Array* arr);
+int arrayMin(Array* arr);
 
 // -- Matrix --
+typedef struct _matrix_ {
+    int** baseMatrix;
+    unsigned int rows;
+    unsigned int cols;
+} IntMatrix;
+
+typedef struct _float_matrix_ {
+    float** baseMatrix;
+    unsigned int rows;
+    unsigned int cols;
+} FloatMatrix;
+
+// -- Matrix Functions -- Int/Float Overloads
+IntMatrix** createMatrix(unsigned int nrows, unsigned int ncols);
+IntMatrix** copyMatrix(IntMatrix** imatrix, unsigned int nrows, unsigned int ncols);
+IntMatrix** deleteMatrix(IntMatrix** imatrix);
+
+FloatMatrix** createMatrix(unsigned int nrows, unsigned int ncols);
+FloatMatrix** copyMatrix(FloatMatrix** fmatrix, unsigned int nrows, unsigned int ncols);
+FloatMatrix** deleteMatrix(FloatMatrix** fmatrix);
+
 
 // -- Stack --
 
