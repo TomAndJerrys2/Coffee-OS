@@ -69,8 +69,9 @@ Array* mergeArrays(Array* arr1, Array* arr2) {
     // Adds second array
     for(int i = indexCounter; indexCounter < arr2->capacity; indexCounter++) {
         newArr->basePtr[indexCounter] = arr2->basePtr[indexCounter];
-        indexCounter++;
     }
+
+    return newArr;
 }
 
 // Inserts an element at a specified position
