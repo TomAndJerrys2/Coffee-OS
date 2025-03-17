@@ -31,7 +31,7 @@ namespace Structure {
 
     template <class T>
     class DynamicTree {
-
+        
     };
 }
 #endif
