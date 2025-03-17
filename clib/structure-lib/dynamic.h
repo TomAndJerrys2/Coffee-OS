@@ -3,29 +3,35 @@
 #define DYNAMIC_H_
 
 #include "../mem-lib/memory.h"
+namespace Structure {
+    template <class T>
+    class Vector {
 
-class Vector {
+    };
 
-};
+    template <class T>
+    class DynamicList {
 
-class DynamicList {
+    };
 
-};
+    template <class T>
+    class DynamicStack {
 
-class DynamicStack {
+    };
 
-};
+    template <class T>
+    class DynamicQueue {
 
-class DynamicQueue {
+    };
 
-};
+    template <class T>
+    class DynamicLinkedList {
 
-class DynamicLinkedList {
+    };
 
-};
+    template <class T>
+    class DynamicTree {
 
-class DynamicTree {
-
-};
-
+    };
+}
 #endif
