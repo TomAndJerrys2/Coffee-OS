@@ -42,15 +42,27 @@ typedef struct _float_matrix_ {
     unsigned int cols;
 } FloatMatrix;
 
-// -- Matrix Functions -- Int/Float Overloads
-IntMatrix** createMatrix(unsigned int nrows, unsigned int ncols);
-IntMatrix** copyMatrix(IntMatrix** imatrix, unsigned int nrows, unsigned int ncols);
-IntMatrix** deleteMatrix(IntMatrix** imatrix);
+// -- Matrix Functions -- i/f
+IntMatrix** icreateMatrix(unsigned int nrows, unsigned int ncols);
+IntMatrix** icopyMatrix(IntMatrix** imatrix, unsigned int nrows, unsigned int ncols);
+IntMatrix** ideleteMatrix(IntMatrix** imatrix);
 
-FloatMatrix** createMatrix(unsigned int nrows, unsigned int ncols);
-FloatMatrix** copyMatrix(FloatMatrix** fmatrix, unsigned int nrows, unsigned int ncols);
-FloatMatrix** deleteMatrix(FloatMatrix** fmatrix);
+// Add or remove elements
+IntMatrix** imatrixInsert(IntMatrix** matrix, const int row, const int col);
+IntMatrix** imatrixRemove(IntMatrix** matrix, const int row, const int col);
+int imatrixMax(IntMatrix** matrix);
+int imatrixMin(IntMatrix** matrix);
 
+// Float functions
+FloatMatrix** fcreateMatrix(unsigned int nrows, unsigned int ncols);
+FloatMatrix** fcopyMatrix(FloatMatrix** fmatrix, unsigned int nrows, unsigned int ncols);
+FloatMatrix** fdeleteMatrix(FloatMatrix** fmatrix);
+
+// Add or remove elements
+FloatMatrix** fmatrixInsert(FloatMatrix** matrix, const int row, const int col);
+FloatMatrix** fmatrixRemove(FloatMatrix** matrix, const int row, const int col);
+float fmatrixMax(FloatMatrix** matrix);
+float fmatrixMin(FloatMatrix** matrix);
 
 // -- Stack --
 
