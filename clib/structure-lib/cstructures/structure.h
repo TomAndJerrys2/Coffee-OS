@@ -8,11 +8,17 @@
 #define STRUC_POS_EMPTY 1
 #define STRUC_FULL 2
 
+// Swap two integers with pointer assignment
+void swapInt(int* numOne, int* numTwo) {
+    int temp = *numOne;
+    *numOne = *numTwo;
+    *numTwo = temp;
+}
+
 // -- Array --
 typedef struct _array_ {
     int* basePtr;
     unsigned int size;
-
     unsigned int capacity;
 } Array;
 
@@ -36,41 +42,97 @@ typedef struct _matrix_ {
     unsigned int cols;
 } IntMatrix;
 
-typedef struct _float_matrix_ {
-    float** baseMatrix;
-    unsigned int rows;
-    unsigned int cols;
-} FloatMatrix;
-
-// -- Matrix Functions -- i/f
-IntMatrix** icreateMatrix(unsigned int nrows, unsigned int ncols);
-IntMatrix** icopyMatrix(IntMatrix** imatrix, unsigned int nrows, unsigned int ncols);
-IntMatrix** ideleteMatrix(IntMatrix** imatrix);
+// -- Matrix Functions --
+IntMatrix** createMatrix(unsigned int nrows, unsigned int ncols);
+IntMatrix** copyMatrix(IntMatrix** imatrix, unsigned int nrows, unsigned int ncols);
+IntMatrix** deleteMatrix(IntMatrix** imatrix);
 
 // Add or remove elements
-IntMatrix** imatrixInsert(IntMatrix** matrix, const int row, const int col);
-IntMatrix** imatrixRemove(IntMatrix** matrix, const int row, const int col);
-int imatrixMax(IntMatrix** matrix);
-int imatrixMin(IntMatrix** matrix);
+IntMatrix** matrixInsert(IntMatrix** matrix, const int row, const int col);
+IntMatrix** matrixRemove(IntMatrix** matrix, const int row, const int col);
+int matrixMax(IntMatrix** matrix);
+int matrixMin(IntMatrix** matrix);
 
-// Float functions
-FloatMatrix** fcreateMatrix(unsigned int nrows, unsigned int ncols);
-FloatMatrix** fcopyMatrix(FloatMatrix** fmatrix, unsigned int nrows, unsigned int ncols);
-FloatMatrix** fdeleteMatrix(FloatMatrix** fmatrix);
+// -- Stack -- FILO
+typedef struct _stack_ {
+    int capacity;
+    int top;
+    int* baseStack;
+} Stack;
 
-// Add or remove elements
-FloatMatrix** fmatrixInsert(FloatMatrix** matrix, const int row, const int col);
-FloatMatrix** fmatrixRemove(FloatMatrix** matrix, const int row, const int col);
-float fmatrixMax(FloatMatrix** matrix);
-float fmatrixMin(FloatMatrix** matrix);
+// -- Stack Functions --
+Stack* createStack(unsigned int capacity);
+void deleteStack();
 
-// -- Stack --
+int isEmpty(); // checks if the stack is empty
+void push(Stack* stack, int element); // adds an element onto the stack
+int pop(Stack* stack); // removes the element at the tail
+const int peek(Stack* stack); // returns the tail element
 
-// -- Queue --
+// -- Queue -- FIFO
+typedef struct _queue_ {
+    int* baseQueue;
+    int front;
+    unsigned int size;
+    unsigned int capacity;
+} Queue;
+
+// -- Queue Functions --
+Queue* createQueue(unsigned int size);
+void deleteQueue();
+
+void enqueue(int element); // adds an element in the queue
+void dequeue(); // removes the element at the head
+int peek(); // returns the head element
 
 // -- Priority Queue --
+typedef struct _priority_queue_ {
+    int* pQueueBase;
+    int size;
+} PriorityQueue;
+
+PriorityQueue* createPQueue();
+void deletePQueue(PriorityQueue* pq);
+
+// Increase or decrease heap sizes during insertion/deletion
+const void heapIncrease(PriorityQueue* pq, int index);
+const void heapDecrease(PriorityQueue* pq, int index);
+// Insertion/Deletion
+void penqueue(PriorityQueue* pq, int element);
+void pdequeue(PriorityQueue* pq);
+int peek(PriorityQueue pq);
 
 // -- Singularly Linked List --
+typedef struct _node_ {
+    int data;
+    int size;
+} Node;
+
+typedef struct _linked_list_ {
+    // head and next node
+    Node* head;
+    Node* next;
+} LinkedList;
+
+LinkedList* createLinkedList();
+void deleteLinkedList(LinkedList* ll);
+
+// Insertion
+const void insertHead(int element);
+const void insertTail(int element);
+const void insertAt(int element, unsigned int index);
+// Deletion
+void deleteHead();
+void deleteTail();
+void deleteAt(unsigned int index);
+// Find Max/Min Elements
+int findMax();
+int findMin();
+// Getters
+int getNodeCount(LinkedList* ll);
+int getNodeSize(LinkedList* ll);
+// Algorithms
+LinkedList* reverseLinkedList(LinkedList ll);
 
 // -- Doubly Linked List --
 
