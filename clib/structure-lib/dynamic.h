@@ -1,8 +1,9 @@
+// Dynamic data structures by Kyle Brady
+// Will Optimize throughout patches of the operating system
+
 #pragma once
 #ifndef DYNAMIC_H_
 #define DYNAMIC_H_
-
-#include "../mem-lib/memory.h"
 
 namespace Structure {
     // Custom Vector Implementation
@@ -11,22 +12,32 @@ namespace Structure {
             T* baseVector = nullptr; // Dynamic Structure
             unsigned int capacity = {0}; // Vector Capacity
             unsigned int current = {0}; // Current Number of Elements
+            // Clean-up function
+            void __cleanup__() {
+                if(this->baseVector != nullptr) {
+                    dealloc(baseVector);
+                    baseVector = nullptr;
+                }
+            }
+    
         public:
             // Default Constructor
             explicit Vector();
 
             // Insertion / Deletion
-            void push(T element) const;
+            void push(T element);
             void push(T element, unsigned int index);
 
             // Pop also returns the element deleted
-            T pop() const;
+            T pop();
 
-            // Getter
+            // Getters
             T getElement(unsigned int index);
+            int getSize();
+            int getCapacity();
             
             // Return a reversed version of the vector passed
-            static T* reverseVector(T* vec);
+            static Vector reverseVector(Vector vec);
 
             // For Number values
             int vecMax(); // Max Int
@@ -35,6 +46,8 @@ namespace Structure {
             float vecMax(); // Min Float
             double vecMax(); // Max Double
             double vecMax(); // Min Double
+
+            static void printVector(Vector vec); // prints vector
 
             // Destructor to deallocate memory
             ~Vector();

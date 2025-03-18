@@ -1,3 +1,5 @@
+// Custom String Class by Kyle Brady
+
 #pragma once
 #ifndef STRING_H_
 #define STRING_H_
