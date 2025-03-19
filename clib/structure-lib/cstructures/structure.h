@@ -62,12 +62,12 @@ typedef struct _stack_ {
 
 // -- Stack Functions --
 Stack* createStack(unsigned int capacity);
-void deleteStack();
+void deleteStack(Stack* stack);
 
 int isEmpty(); // checks if the stack is empty
 void push(Stack* stack, int element); // adds an element onto the stack
 int pop(Stack* stack); // removes the element at the tail
-const int peek(Stack* stack); // returns the tail element
+const int peek(const Stack* stack); // returns the tail element
 
 // -- Queue -- FIFO
 typedef struct _queue_ {
@@ -79,11 +79,11 @@ typedef struct _queue_ {
 
 // -- Queue Functions --
 Queue* createQueue(unsigned int size);
-void deleteQueue();
+void deleteQueue(Queue* queue);
 
-void enqueue(int element); // adds an element in the queue
-void dequeue(); // removes the element at the head
-int peek(); // returns the head element
+void enqueue(Queue* queue, int element); // adds an element in the queue
+void dequeue(Queue* queue); // removes the element at the head
+const int peek(const Queue* queue); // returns the head element
 
 // -- Priority Queue --
 typedef struct _priority_queue_ {
@@ -118,16 +118,16 @@ LinkedList* createLinkedList();
 void deleteLinkedList(LinkedList* ll);
 
 // Insertion
-const void insertHead(int element);
-const void insertTail(int element);
-const void insertAt(int element, unsigned int index);
+const void insertHead(LinkedList* ll, int element);
+const void insertTail(LinkedList* ll, int element);
+const void insertAt(LinkedList* ll, int element, unsigned int index);
 // Deletion
-void deleteHead();
-void deleteTail();
-void deleteAt(unsigned int index);
+void deleteHead(LinkedList* ll);
+void deleteTail(LinkedList* ll);
+void deleteAt(LinkedList* ll, unsigned int index);
 // Find Max/Min Elements
-int findMax();
-int findMin();
+int findMax(LinkedList* ll);
+int findMin(LinkedList* ll);
 // Getters
 int getNodeCount(LinkedList* ll);
 int getNodeSize(LinkedList* ll);
